@@ -30,6 +30,10 @@
             border-radius: 5px;
             font-weight: bold;
             margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            font-size: 16px;
         }
         .btn:hover { background-color: #e07a14; }
     </style>
@@ -40,17 +44,22 @@
         <h2>Lattafa Lail Maleki Perfume</h2>
         <p>Click below to claim your deal. Your consultant tracking will be applied automatically.</p>
         
-        <!-- Script to handle the clean handoff -->
-        <a href="#" onclick="openJumiaDeal(); return false;" class="btn">View Product on Jumia</a>
+        <!-- Button triggers the background tracking and immediate redirect -->
+        <button onclick="openJumiaDeal()" class="btn">View Product on Jumia</button>
     </div>
 
     <script>
         function openJumiaDeal() {
-            // 1. Open your JForce tracker link in a new tab/window to register the cookie
-            window.open("https://jforce.jumia.co.ke/s/279FZYk", "_blank");
-            
-            // 2. Instantly direct the current page to the actual perfume product
-            window.location.href = "https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html";
+            // 1. Create a hidden iframe to silently trigger the JForce tracker cookie in the background
+            var tracker = document.createElement('iframe');
+            tracker.style.display = 'none';
+            tracker.src = 'https://jforce.jumia.co.ke/s/279FZYk';
+            document.body.appendChild(tracker);
+
+            // 2. Wait a split second for the tracker to fire, then take the user straight to the product page
+            setTimeout(function() {
+                window.location.href = "https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html";
+            }, 600);
         }
     </script>
 
