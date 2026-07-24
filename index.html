@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting to Jumia...</title>
-    <script type="text/javascript">
-        // Step 1: Open the JForce tracking link immediately
-        window.location.href = "https://jforce.jumia.co.ke/s/279FZYk";
-        
-        // Step 2: Wait 3 seconds (3000 milliseconds), then redirect to the product page
-        setTimeout(function() {
-            window.location.href = "https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html";
-        }, 3000);
-    </script>
+    <title>Redirecting...</title>
+    <!-- Method: Load JForce tracker via hidden iframe so the cookie drops -->
+    <iframe src="https://jforce.jumia.co.ke/s/279FZYk" style="display:none; width:0; height:0; border:0;"</iframe>
+    
+    <!-- Method: Automatically redirect the main window to the perfume product after 2 seconds -->
+    <meta http-equiv="refresh" content="2;url=https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html">
 </head>
 <body>
-    <p>Please wait while we connect you to your product...</p>
+    <p>Taking you to the product...</p>
+    <script>
+        // JavaScript backup redirect in case the meta tag is restricted
+        setTimeout(function() {
+            window.location.replace("https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html");
+        }, 2000);
+    </script>
 </body>
 </html>
