@@ -23,7 +23,7 @@
         p { color: #666; font-size: 14px; }
         .btn {
             display: block;
-            background-color: #f68b1e; /* Jumia Orange */
+            background-color: #f68b1e;
             color: white;
             text-decoration: none;
             padding: 15px;
@@ -38,11 +38,21 @@
 
     <div class="card">
         <h2>Lattafa Lail Maleki Perfume</h2>
-        <p>Click the button below to view the best deal and secure your order on Jumia.</p>
+        <p>Click below to claim your deal. Your consultant tracking will be applied automatically.</p>
         
-        <!-- This link takes them through your JForce tracking first -->
-        <a href="https://jforce.jumia.co.ke/s/279FZYk" class="btn" target="_blank">View Product on Jumia</a>
+        <!-- Script to handle the clean handoff -->
+        <a href="#" onclick="openJumiaDeal(); return false;" class="btn">View Product on Jumia</a>
     </div>
+
+    <script>
+        function openJumiaDeal() {
+            // 1. Open your JForce tracker link in a new tab/window to register the cookie
+            window.open("https://jforce.jumia.co.ke/s/279FZYk", "_blank");
+            
+            // 2. Instantly direct the current page to the actual perfume product
+            window.location.href = "https://www.jumia.co.ke/lattafa-lail-maleki-perfume-327898509.html";
+        }
+    </script>
 
 </body>
 </html>
